@@ -1,17 +1,18 @@
 import express from "express";
+import { serverErrorHandler } from "./utils/serverErrorHandler.js";
+import { initServer } from "./utils/initServer.js";
+import homeRoutes from "./routes/homeRoutes.js";
 
 const server = new express();
 const PORT = process.env.PORT || 3000;
 
-server.get('/', (req, res) => {
-  res.send(`hello from backend to frontend!`)
-})
+// 
+server.use("/", homeRoutes);
 
 // Start the server
 const serverListener = server.listen(PORT, () => {
-  const serverUrl = serverListener.address();
-  const serverAddress =
-    serverUrl.address === "::" ? "localhost" : serverUrl.address;
-
-  console.log(`Server is listening on: http://${serverAddress}:${PORT}\n${new Date()}`)
+  initServer(serverListener);
 });
+
+// Server Error Handling
+serverListener.on("error", serverErrorHandler);
