@@ -14,7 +14,7 @@ export const initServer = (serverListener) => {
     // Log the URL:PORT and current date
     console.log(
       colors.brightYellow(
-        `Server is listening on: http://${serverAddress}:${serverPort}) ${format(
+        `Server is listening on: http://${serverAddress}:${serverPort} -- ${format(
           new Date(),
           "yyyy/MM/dd hh:mm:ss"
         )}`

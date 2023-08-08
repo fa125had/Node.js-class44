@@ -3,7 +3,9 @@ import { serverErrorHandler } from "./utils/serverErrorHandler.js";
 import { initServer } from "./utils/initServer.js";
 import homeRoutes from "./routes/homeRoutes.js";
 import weatherRoutes from "./routes/weatherRoutes.js";
+import dotenv from "dotenv";
 
+dotenv.config();
 const server = new express();
 const PORT = process.env.PORT || 3000;
 
