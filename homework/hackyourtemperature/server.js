@@ -1,4 +1,5 @@
 import express from "express";
+import { join } from "path";
 import { serverErrorHandler } from "./utils/serverErrorHandler.js";
 import { initServer } from "./utils/initServer.js";
 import homeRoutes from "./routes/homeRoutes.js";
@@ -7,7 +8,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const server = new express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // Body parser
 server.use(express.json());
