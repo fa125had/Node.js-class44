@@ -6,7 +6,7 @@ import weatherRoutes from "./routes/weatherRoutes.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-const server = new express();
+export const server = new express();
 const PORT = process.env.PORT || 3000;
 
 // Body parser
@@ -19,11 +19,11 @@ server.use("/", homeRoutes);
 server.use("/weather", weatherRoutes);
 
 // Start the server
-const serverListener = server.listen(PORT, () => {
+export const serverListener = server.listen(PORT, () => {
   initServer(serverListener);
 });
 
 // Server Error Handling
 serverListener.on("error", serverErrorHandler);
 
-export default server;
+// export default server;

@@ -25,7 +25,11 @@ export const postCity = async (req, res) => {
     // log the city temperature in celsius
     console.log(`${cityName.toUpperCase()} found!\nCurrent Temperature: ${celsius.toFixed(2)}°C`);
 
-    res.send(data);
+    res.send({
+      weatherText: "city found!",
+      city: cityName,
+      temperature: celsius.toFixed(2)
+    });
   } catch (error) {
     serverErrorHandler(error);
   }
