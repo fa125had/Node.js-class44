@@ -1,9 +1,10 @@
 import fetch from "node-fetch";
 import { serverErrorHandler } from "../utils/serverErrorHandler.js";
+import { API_KEY } from "./keys.js";
 
 export const getCurrentWeather = async (city) => {
   try {
-    const apiKey = process.env.OPEN_WEATHER_API_KEY;
+    const apiKey = process.env.OPEN_WEATHER_API_KEY || API_KEY;
     const headers = {
       "Content-Type": "application/json",
     };
