@@ -25,3 +25,5 @@ const serverListener = server.listen(PORT, () => {
 
 // Server Error Handling
 serverListener.on("error", serverErrorHandler);
+
+export default server;
